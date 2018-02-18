@@ -1,7 +1,7 @@
 {
   "name": "Dynalist Allstar",
   "version": "0.1.0",
-  "description": "Open 2 docs side by side and work on them simultaneously. More cool features on the way!",
+  "description": "Open 2 docs side by side in https://Dynalist.io and work on them simultaneously. More cool features on the way! Please note that it is an unofficial chrome extension.",
   "icons": { 
     "16": "images/icon16.png",
     "32": "images/icon32.png",
