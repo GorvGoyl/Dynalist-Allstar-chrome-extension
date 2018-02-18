@@ -27,7 +27,7 @@
     "default_title": "Dynalist Allstar",      
     "default_popup": "popup.html"   
   },
-  "web_accessible_resources": ["js/inject.js"],
+  "web_accessible_resources": ["js/inject.min.js"],
   "manifest_version": 2,
   "content_security_policy": "script-src 'self'  'unsafe-eval'; object-src 'self'"
 }
