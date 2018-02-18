@@ -1,0 +1,52 @@
+body{
+    background-color: #0087FA;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: solid 2px white;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    height: 200px;
+}
+h1 {
+  
+    color: #fff;
+  
+  }
+  h2,h3,p {
+    color: #fff;
+    display: inline;
+    vertical-align: top;
+  }
+
+  .div-wrapper{
+   
+  }
+  
+  .custom-checkbox{
+    border: solid 2px white;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+  }
+.custom-tick{
+    border: inherit;
+    display: inherit;
+    cursor: inherit;
+    visibility: hidden;
+    height: 8px;
+    width: 5px;
+    transform: rotate(45deg);
+    border-left: 0;
+    border-top: 0;
+    border-width: 2px;
+    margin: 0px 0px 0px 0px;
+}
+  /* CHECKBOX START*/
+  
+  /* CHECKBOX END*/
