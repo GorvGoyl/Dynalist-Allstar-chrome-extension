@@ -5,6 +5,7 @@ body{
     border-radius: 10px;
     width: 350px;
     height: 200px;
+    cursor: context-menu;
 }
 h1 {
   
