@@ -3,7 +3,7 @@ var self = {};
 var contextMenu = '.ContextMenu.DocumentItemContextMenu';
 var position = ' >:nth-child(1)';
 var menuItem_SideEl = '<ul class="MenuGroup menuitem-sidedoc"><li onclick="jg.open_side_doc(this)" class="open-in-side-li MenuItem"><div style="display: inline-flex;"><img style="width: 100%;margin-left: 2px;margin-right: 12px;" class="MenuItem-icon side-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbQAAAG0BjlwfygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABcSURBVDiN7c8hDoBADETRX4JEciouRVB7hrkId9oEuZYMBkkxaxDUVLz0Jw1JpmOGnmOAEWi21yeMiAXA9p74hqSa1SUVSeXFa/cLf+APfCMQkk7gSHy6d0t8vgB1bhqxJYukhwAAAABJRU5ErkJggg=="></div><span class="MenuItem-name">Open in side</span></li></ul>';
-var menuItem_settingsEl = '<li class="MenuItem menuitem-allstar-settings-li" onclick="jg.open_allstar_settings_popup(this)"><div class="MenuItem-icon"><img style="width:14px;margin:0;" class="MenuItem-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAARQAAAEUBOP42OwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHgSURBVCiRhdJPiE5xFMbx7/O7N81myqQxa2qahSxYGf8WShMhUorF2Li/+1I2k5XMCDspu7d7784kSYgiKUnNwp9SKLOQbJDJ4t28mXdk7vtYmJkoxlmecz5ncc4RQFVV+2yPA6uBef4eKfBV0rkY4z0toCu2tzQajel/IACKohiU9DyEcCzYnrA9F0LYtBwCCCH0Ayvruj4TgAFJd20f/x/sdrsngKeS+lWW5UfgMDAFvAH6gTvAqb6+vu+tVmtC0lFgDlgrKdq+kALMz8+/T9O0K+mT7avASWBdq9WakbQbuGR7UNIQ8G5xU6Rpug1QT0/PodHR0W9lWd4GpiWtkLQzxvgIoCzLrbaHl2AI4UO329Xs7OyuycnJB51O5zRQA19tj5Vl+UrSGtsDkj7bJgBkWfYSuCzpRqfTaQMHJR2QtAMYWhjwQtKU7VvALwiQ5/mY7Q22D9V1vTHG+DDG+La3t3dzXdf7QwjbsywbyfP8xx8QoNFovA4hpEmSPKuq6kBRFMPtdvt5kiTrsyybkuSlmwIzRVEMLiZijNeBpu2bkp4Aj4GLi/VmszkEfFFRFHslnZV0JMb4brGhqqoR26vyPL/2O0qS5JrtcS007bE9AQywzJNLmrF9Ps/z+z8BTHLaxEbRmdMAAAAASUVORK5CYII="></div><span class="MenuItem-name">Allstar Settings</span></li>'
+var menuItem_settingsEl = '<li class="MenuItem menuitem-allstar-settings-li" onclick="jg.open_allstar_settings_popup(this)"><div class="MenuItem-icon"><img style="width:14px;margin:0;" class="MenuItem-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQRSURBVEiJpZZfiFR1FMc/57d3Z4TWmqEytY0gBKPyz0NSiyL5IFK4iRTz0Aq17u69Mw5tT5X1UBtF9GAQK8Pde3dtStqXMQ0yRUWKysCQjFBDFsE/ZRZrO9ZqNLN37unh3rFRx42l78v9/c75ne85v/P7/c65QoxisTirWq3awDPAQ8AtzAxXgOOqOlqtVv3+/v4KgAAMDw+312q1gyKyEPge+EZErsyEXVXbgOXAUuBEGIZrcrnceRkcHEwmk8kjcdRbHMd5aYaRXwPf9zcCI2EYjlWr1SVWMpl0gEWxvuP/kAOo6jxARGRhMpnsMyLSBRyP9Ss8z1s0jf20GBgYsIBsPP1JVbuMqj4AfAn8GEeQvRnBf2H+/PnrgHYgAD4XkQcN0AZMAh8CiMiGQqHQFjuTmTgIw3BTPNwPXABmi+d5CrxjjHkvDMNzQAI4AtwDzAHGRGRrKpXyMplMrU42NDS02hjzqqo+CvwNnAUWRzHKOlXtADabukFfX99vwMfxdBkwFzDA/apamJiY2FEsFmcBeJ73uogcUNXHgFlAClhCdO3PpFKpPXXeqw5izIu/ZeBlVX0ScIGaiKyvVCo7PM97CxiI1+0TkU5V3QiMxbJ0uVxuqxNa9cHIyMi9tVptFYCq9maz2V2xavfQ0NBhEflARNYCa2O5a9t2XkQUwHXdA8aYU8BtqrpaRK7dwdTUVHt93NraerhxW9lsdjuwu0F0EXihTg6Qy+XOA6cARGTuDSlKJBKnAY2dLWt04Pt+V0PkAHcAW0qlUktd4LruHOC+2MGFuvzqLXIc5xXf9/eo6hPA76r6tjHmhKp2Ej2eFuAgcIh/z+ALEdkKtKnqi0QV4SKwANhM4y0CMMZsAs4Dt4vIu6q6D8gDLaq6PwiC9Y7jvAG8GZusUtVdqro9Jq+o6rOO4/xxQ4oAent7zwZB8DDwPjABhMBJ4HkR6czn85cBHMd5TUSeBo4CU8CkiOwNw3BlNpvd28hpcR3y+fyvQA/QUyqVWiYnJ+8KgmDccZypxnW2be90Xfe7XC535nqOa7IynXJ8fPzOIAhOAic9z3ukLi8UCnM9z/vUGHPa9/3Hp+OwiOrQ7GbKWq32l2VZZ4jy+5XneXngGPAJ0aO8pKo/N7NV1VtFZNIQVdHlzRb19/f/mUgkVhJV2wQwDHwdk58TkRWO4xxrZisiK4DjRlVHgaW+7z/VbGF3d/elSqWyRkS2xaJW4FvLsjps2z7RzMb3/QxR4Rutt8zDwAIRec627Z3NjCCqoEC7iHx0/aE3kqvqNmAsnU53CIDruncbYz4jatg/AIdE5PLNHDVDGIaz47QsBo5altXZ09Pzy9WGUiqVEuVyuf7bsoioEc0El4kuwGg6nR7OZDJVgH8Ai86YTjG085cAAAAASUVORK5CYII="></div><span class="MenuItem-name">Allstar Settings</span></li>'
 var allstar_settings_popup_el = '<div style ="display:none;" class="modal-container allstar-settings is-shown"> <div class="modal-bg"></div>  <div class="modal js-stop-mousedown-propagation loadable-form">  <span onclick="(function(){$(&quot;.modal-container.allstar-settings&quot;).hide()})()" class="close-btn modal-close-btn"></span>  <div class="mobile-header mod-settings"><div class="MobileHeader-backIcon"></div><div class="MobileHeader-title">Allstar Settings</div>  </div>  <h1 class="modal-title">Allstar Settings</h1>  <div class="settings-tabs-container"><div class="settings-tab is-selected" data-name="preferences"> <div class="setting-section">  <div class="setting mod-checkbox"><input class="js-update-setting sidedoc-checkbox setting-checkbox" onclick ="jg.save_allstar_settings_popup(this)" type="checkbox" data-key="ui.current_highlight" id="ui.current_highlight"><label  class="setting-label mod-checkbox" for="ui.current_highlight">Open Doc in Side</label><div class="setting-explanation">Context menu option to open 2nd document side by side. Work on two documents at same time.</div>  </div> </div></div>  </div> </div></div>'
 var documentHeaderCls = ".DocumentItem-header";
 var selected_2 = "selected_2";
@@ -36,7 +36,7 @@ var myInterval = setInterval(function () {
 
         $(".menuitem-allstar-settings-li").hover(
             function () {
-                $(this).find('img').css('filter', 'brightness(140%)')
+                $(this).find('img').css('filter', 'brightness(150%)')
             }, function () {
                 $(this).find('img').css('filter', '')
             }
@@ -113,7 +113,7 @@ function enableFeature_SideDoc() {
         $(contextMenu + position).after(menuItem_SideEl);
         $(".open-in-side-li").hover(
             function () {
-                $(this).find('img').css('filter', 'brightness(140%)')
+                $(this).find('img').css('filter', 'brightness(150%)')
             }, function () {
                 $(this).find('img').css('filter', '')
             }
@@ -245,11 +245,15 @@ var loadEventiFrame= function(el) {
 
     $(el).contents().find('.AppHeader,.GlobalSearchPage,.LeftPaneSlidebarContainer,.LeftPaneSplitter,.ShortcutHelp,.DocumentTools').remove();
     // add close button
-    $(el).contents().find('.Document').prepend('<div class="DocumentTools sidedoc"> <div class="close-btn DocumentTools-icon iframe-close js-stop-mousedown-propagation" style=""></div> </div>');
+    $(el).contents().find('.Document').prepend('<div class="DocumentTools sidedoc"> <div class="close-btn DocumentTools-icon iframe-close js-stop-mousedown-propagation" style=""><div class="tooltip mod-close" data-title="Close"></div></div> </div>');
     $(el).contents().find('.DocumentTools.sidedoc').show();
     $(el).contents().find(".iframe-close").on('click', jg.close_side_doc);
     $(el).contents().find('.normal-view').removeClass('normal-view')
-
+    var body = $(el).contents().find('body');
+    body.removeClass('is-mobile');
+    if(!body.hasClass("is-desktop")){
+        body.addClass("is-desktop");
+     }
     // Observers
     // side doc after load event
     var sidedocCls = $(el).contents().find(mainDocCls)[0];
@@ -309,3 +313,5 @@ function adjustDocsWidth(a) {
 //DYNALIST.app.userspace.ui.view.save_preferences;
 return self;
 })();
+
+/* I welcome new opportunities at: 1gouravgg[at]gmail.com */
