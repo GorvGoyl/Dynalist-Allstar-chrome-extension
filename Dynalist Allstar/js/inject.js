@@ -5,6 +5,7 @@ var jg = (function () {
     var menuItem_SideEl = '<ul class="MenuGroup menuitem-sidedoc"><li onclick="jg.open_in_side(this)" class="open-in-side-li MenuItem"><div style="display: inline-flex;"><img style="width: 100%;margin-left: 2px;margin-right: 12px;" class="MenuItem-icon side-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbQAAAG0BjlwfygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABcSURBVDiN7c8hDoBADETRX4JEciouRVB7hrkId9oEuZYMBkkxaxDUVLz0Jw1JpmOGnmOAEWi21yeMiAXA9p74hqSa1SUVSeXFa/cLf+APfCMQkk7gSHy6d0t8vgB1bhqxJYukhwAAAABJRU5ErkJggg=="></div><span class="MenuItem-name">Open in side</span></li></ul>';
     var menuItem_settingsEl = '<li class="MenuItem menuitem-allstar-settings-li" onclick="jg.open_allstar_settings_popup(this)"><div class="MenuItem-icon"><img style="width:14px;margin:0;" class="MenuItem-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQRSURBVEiJpZZfiFR1FMc/57d3Z4TWmqEytY0gBKPyz0NSiyL5IFK4iRTz0Aq17u69Mw5tT5X1UBtF9GAQK8Pde3dtStqXMQ0yRUWKysCQjFBDFsE/ZRZrO9ZqNLN37unh3rFRx42l78v9/c75ne85v/P7/c65QoxisTirWq3awDPAQ8AtzAxXgOOqOlqtVv3+/v4KgAAMDw+312q1gyKyEPge+EZErsyEXVXbgOXAUuBEGIZrcrnceRkcHEwmk8kjcdRbHMd5aYaRXwPf9zcCI2EYjlWr1SVWMpl0gEWxvuP/kAOo6jxARGRhMpnsMyLSBRyP9Ss8z1s0jf20GBgYsIBsPP1JVbuMqj4AfAn8GEeQvRnBf2H+/PnrgHYgAD4XkQcN0AZMAh8CiMiGQqHQFjuTmTgIw3BTPNwPXABmi+d5CrxjjHkvDMNzQAI4AtwDzAHGRGRrKpXyMplMrU42NDS02hjzqqo+CvwNnAUWRzHKOlXtADabukFfX99vwMfxdBkwFzDA/apamJiY2FEsFmcBeJ73uogcUNXHgFlAClhCdO3PpFKpPXXeqw5izIu/ZeBlVX0ScIGaiKyvVCo7PM97CxiI1+0TkU5V3QiMxbJ0uVxuqxNa9cHIyMi9tVptFYCq9maz2V2xavfQ0NBhEflARNYCa2O5a9t2XkQUwHXdA8aYU8BtqrpaRK7dwdTUVHt93NraerhxW9lsdjuwu0F0EXihTg6Qy+XOA6cARGTuDSlKJBKnAY2dLWt04Pt+V0PkAHcAW0qlUktd4LruHOC+2MGFuvzqLXIc5xXf9/eo6hPA76r6tjHmhKp2Ej2eFuAgcIh/z+ALEdkKtKnqi0QV4SKwANhM4y0CMMZsAs4Dt4vIu6q6D8gDLaq6PwiC9Y7jvAG8GZusUtVdqro9Jq+o6rOO4/xxQ4oAent7zwZB8DDwPjABhMBJ4HkR6czn85cBHMd5TUSeBo4CU8CkiOwNw3BlNpvd28hpcR3y+fyvQA/QUyqVWiYnJ+8KgmDccZypxnW2be90Xfe7XC535nqOa7IynXJ8fPzOIAhOAic9z3ukLi8UCnM9z/vUGHPa9/3Hp+OwiOrQ7GbKWq32l2VZZ4jy+5XneXngGPAJ0aO8pKo/N7NV1VtFZNIQVdHlzRb19/f/mUgkVhJV2wQwDHwdk58TkRWO4xxrZisiK4DjRlVHgaW+7z/VbGF3d/elSqWyRkS2xaJW4FvLsjps2z7RzMb3/QxR4Rutt8zDwAIRec627Z3NjCCqoEC7iHx0/aE3kqvqNmAsnU53CIDruncbYz4jatg/AIdE5PLNHDVDGIaz47QsBo5altXZ09Pzy9WGUiqVEuVyuf7bsoioEc0El4kuwGg6nR7OZDJVgH8Ai86YTjG085cAAAAASUVORK5CYII="></div><span class="MenuItem-name">Allstar Settings</span></li>'
     var allstar_settings_popup_el = '<div style ="display:none;" class="modal-container allstar-settings is-shown"> <div class="modal-bg"></div>  <div class="modal js-stop-mousedown-propagation loadable-form">  <span onclick="(function(){$(&quot;.modal-container.allstar-settings&quot;).hide()})()" class="close-btn modal-close-btn"></span>  <div class="mobile-header mod-settings"><div class="MobileHeader-backIcon"></div><div class="MobileHeader-title">Allstar Settings</div>  </div>  <h1 class="modal-title">Allstar Settings</h1>  <div class="settings-tabs-container"><div class="settings-tab is-selected" data-name="preferences"> <div class="setting-section">  <div class="setting mod-checkbox"><input class="js-update-setting sidedoc-checkbox setting-checkbox" onclick ="jg.save_allstar_settings_popup(this)" type="checkbox" data-key="ui.current_highlight" id="ui.current_highlight"><label  class="setting-label mod-checkbox" for="ui.current_highlight">Open Doc in Side</label><div class="setting-explanation">Context menu option to open 2nd document side by side. Work on two documents at same time.</div>  </div> </div></div>  </div> </div></div>'
+    var dragDivEl = '<div id="dragoverlay" style="position: static;cursor: ew-resize;top: 0px;bottom: 0px;z-index: 99;left: 0;width: 100%;"><div id="draghandle" style="position: absolute !important;left: 0px;top: 0px;bottom: 0px;width: 9px;cursor: ew-resize;border-left: 1px none #e2e2e2;z-index: 100;"></div></div>';
     var documentHeaderCls = ".DocumentItem-header";
     var selected_2 = "selected_2";
     var menuitem_sidedoc = '.menuitem-sidedoc';
@@ -24,12 +25,18 @@ var jg = (function () {
     var allstar_storage_key = 'dynalist_allstar';
     var allstar_val = '{"side_doc":true}';
     var KEY_SIDE_DOC_URL = 'side_doc_url';
+    var dragWidth = 8;
+    var isResizing = false;
+    var lastDownX = 0;
+    var dragHandle = "#draghandle";
+    var dragOverlay = "#dragoverlay";
+    var docMinWidth = 200;
     var myInterval = setInterval(function () {
 
         // this page uses host website's jQuery
 
         //DOCUMENT.READY FUNCTION
-        if ($(documentHeaderCls).length>0) {
+        if ($(documentHeaderCls).length > 0) {
 
             // -ADD 'open in side' to context menu
             enableFeature_SideDoc();
@@ -144,24 +151,29 @@ var jg = (function () {
             }
         }
 
-        if(isUrlFound){
+        if (isUrlFound) {
             open_side_doc_by_url(DOC_URL);
         }
     }
     self['open_in_side'] = open_in_side;
 
 
-    var close_side_doc = function () {
+    var closeSideDoc = function () {
         $(iframewrapper).remove();
         DYNALIST.app.userspace.ui.pane_ui._update_nav_width();
 
         // remove doc url from localstorage
-        saveAllstarSettingsLocalStorage(KEY_SIDE_DOC_URL,null);
+        saveAllstarSettingsLocalStorage(KEY_SIDE_DOC_URL, null);
+
+        // remove resize drag event handlers
+        $(dragOverlay).remove();
+        $(document).off('mousemove', dragMouseMoveEvent);
+        $(document).off('mouseup', dragMouseUpEvent);
     }
 
-    self['close_side_doc'] = close_side_doc;
+    self['closeSideDoc'] = closeSideDoc;
 
- 
+
 
 
 
@@ -182,7 +194,7 @@ var jg = (function () {
     function open_side_doc_by_url(DOC_URL) {
         var halfWidth = 0;
         if (isSideDocOpen()) {
-            close_side_doc();
+            closeSideDoc();
         }
         halfWidth = $(mainDocCls).width() / 2;
         $(mainDocCls).width(halfWidth);
@@ -203,9 +215,8 @@ var jg = (function () {
         $(mainDocCls).after(iframe);
     }
 
-       // -ADJUST size, TRIM extra divs from iFrame
-       var loadEventiFrame = function (el) {
-        debugger;
+    // -ADJUST size, TRIM extra divs, add resizable
+    var loadEventiFrame = function (el) {
         var bckp = localStorage.dynalist;
 
         // trim extra divs
@@ -213,13 +224,18 @@ var jg = (function () {
         // add close button
         $(el).contents().find('.Document').prepend('<div class="DocumentTools sidedoc"> <div class="close-btn DocumentTools-icon iframe-close js-stop-mousedown-propagation" style=""><div class="tooltip mod-close" data-title="Close"></div></div> </div>');
         $(el).contents().find('.DocumentTools.sidedoc').show();
-        $(el).contents().find(".iframe-close").on('click', jg.close_side_doc);
+        $(el).contents().find(".iframe-close").on('click', jg.closeSideDoc);
         $(el).contents().find('.normal-view').removeClass('normal-view')
         var body = $(el).contents().find('body');
         body.removeClass('is-mobile');
         if (!body.hasClass("is-desktop")) {
             body.addClass("is-desktop");
         }
+
+        // -ADD resizable div
+        addResizableComponent();
+
+
         // Observers
         // side doc after load event
         var sidedocCls = $(el).contents().find(mainDocCls)[0];
@@ -231,7 +247,7 @@ var jg = (function () {
 
     }
     self['loadEventiFrame'] = loadEventiFrame;
-    
+
 
     // iFrame loaded successfully... save values to localstorage
     var afterLoadEventiFrame = _debounce(function (el) {
@@ -245,6 +261,81 @@ var jg = (function () {
 
         saveAllstarSettingsLocalStorage(KEY_SIDE_DOC_URL, DOC_URL);
     }, 500);
+
+    function addResizableComponent() {
+        $(mainDocCls).after(dragDivEl)
+        setPositionDrag();
+        var dragHandleEl = $(dragHandle)
+        var dragOverlayEl = $(dragOverlay)
+        dragHandleEl.on('mousedown', function (e) {
+
+            dragOverlayEl.css('position', 'absolute');
+            dragHandleEl.css('border-left-style','solid');
+
+            isResizing = true;
+            lastDownX = e.clientX;
+
+        });
+
+        $(document).on('mousemove', dragMouseMoveEvent);
+        $(document).on('mouseup', dragMouseUpEvent);
+        $(window).on('resize', setPositionDrag);
+    }
+
+    function dragMouseMoveEvent(e) {
+        // we don't want to do anything if we aren't resizing.
+        if (!isResizing) {
+            return;
+        }
+        var handle = $(dragHandle)
+        handle.css('left',e.clientX)
+    }
+    function dragMouseUpEvent(e) {
+        var curUpX = e.clientX;
+        var dragOverlayEl = $(dragOverlay)
+        var dragHandleEl = $(dragHandle)
+        dragOverlayEl.css('position', 'static');
+        dragHandleEl.css('border-left-style','none');
+        if (isResizing && curUpX != lastDownX) {
+            var margin = Math.abs(curUpX - lastDownX);
+            var lwd, rwd;
+            var leftDoc = $(mainDocCls);
+            var rightDoc = $(iframewrapper);
+            //moved <-
+            if (curUpX < lastDownX) {
+                lwd = leftDoc.width() - margin;
+                rwd = rightDoc.width() + margin;
+                // it goes beyond left boundry so set width manually
+                if (lwd < docMinWidth) {
+                    lwd = docMinWidth;
+                    rwd = rightDoc.width() + leftDoc.width() - docMinWidth;
+                }
+            } else {
+                // moved ->
+                lwd = leftDoc.width() + margin;
+                rwd = rightDoc.width() - margin;
+
+                // it goes above right boundry so set width manually
+                if (rwd < docMinWidth) {
+                    rwd = docMinWidth;
+                    lwd = leftDoc.width() + rightDoc.width() - docMinWidth;
+                }
+            }
+            leftDoc.css('width', lwd);
+            rightDoc.css('width', rwd);
+            $(sideDociframeCls).css('width', rwd);
+            setPositionDrag();
+        }
+        // stop resizing
+        isResizing = false;
+    }
+    function setPositionDrag() {
+        if ($(dragHandle).length > 0) {
+            var leftDoc = $(mainDocCls);
+            var dragPos = leftDoc.width() + Number(leftDoc.css('left').replace('px', ''))
+            $(dragHandle).css('left', dragPos);
+        }
+    };
 
     // -GETS all allstar settings from localstorage
     function loadAllstarSettings() {
@@ -285,7 +376,7 @@ var jg = (function () {
 
     function disableFeature_SideDoc() {
         if (isSideDocOpen()) {
-            close_side_doc();
+            closeSideDoc();
         }
         $(menuitem_sidedoc).remove();
     }
@@ -341,8 +432,10 @@ var jg = (function () {
             mainDocWidth -= $(iframewrapper).width();
 
             //end
-
             $(mainDocCls).width(mainDocWidth);
+
+            // set drag handle position
+            setPositionDrag();
         }
     }
 
